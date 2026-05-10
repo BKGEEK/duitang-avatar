@@ -1,7 +1,7 @@
 const API_URL = '/api/nt';
 const CATEGORIES = [
   { id: '女生头像', name: '女生头像' },
-  { id: '鐢风敓澶村儚', name: '男生头像' },
+  { id: '男生头像', name: '男生头像' },
   { id: '鎯呬荆澶村儚', name: '情侣头像' },
   { id: '闂鸿湝澶村儚', name: '闺蜜头像' },
   { id: '浠欏コ澶村儚', name: '仙女头像' },
