@@ -1,6 +1,6 @@
 ﻿const API_URL = 'https://api.lvxiaodong.com/api/nt';
 const CATEGORIES = [
-  { id: '濂崇敓澶村儚', name: '女生头像' },
+  { id: '女生头像', name: '女生头像' },
   { id: '鐢风敓澶村儚', name: '男生头像' },
   { id: '鎯呬荆澶村儚', name: '情侣头像' },
   { id: '闂鸿湝澶村儚', name: '闺蜜头像' },
