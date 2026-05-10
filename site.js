@@ -1,18 +1,18 @@
-Ôªøconst API_URL = 'https://api.lvxiaodong.com/api/nt';
+const API_URL = '/api/nt';
 const CATEGORIES = [
-  { id: 'Â•≥ÁîüÂ§¥ÂÉè', name: 'Â•≥ÁîüÂ§¥ÂÉè' },
-  { id: 'Èê¢È£éÊïìÊæ∂ÊùëÂÑö', name: 'Áî∑ÁîüÂ§¥ÂÉè' },
-  { id: 'ÈéØÂë¨ËçÜÊæ∂ÊùëÂÑö', name: 'ÊÉÖ‰æ£Â§¥ÂÉè' },
-  { id: 'ÈóÇÈ∏øÊπùÊæ∂ÊùëÂÑö', name: 'Èó∫ËúúÂ§¥ÂÉè' },
-  { id: 'Êµ†Ê¨è„Ç≥Êæ∂ÊùëÂÑö', name: '‰ªôÂ•≥Â§¥ÂÉè' },
-  { id: 'Èçî„Ñ¶ÊûÅÊæ∂ÊùëÂÑö', name: 'Âä®Êº´Â§¥ÂÉè' },
-  { id: 'Â®åÊ¨ìÊ¥âÊæ∂ÊùëÂÑö', name: 'Ê≤ôÈõïÂ§¥ÂÉè' },
-  { id: 'ÈçôÓàúÂüçÊæ∂ÊùëÂÑö', name: 'ÂèØÁà±Â§¥ÂÉè' },
-  { id: 'Â®Ü—ÖÁ∑®Êæ∂ÊùëÂÑö', name: 'Ê¨ßÁæéÂ§¥ÂÉè' },
-  { id: 'Èçô„ÇâÓóìÊæ∂ÊùëÂÑö', name: 'Âè§È£éÂ§¥ÂÉè' },
-  { id: 'ÈíÄÂ±ΩÁñáÊæ∂ÊùëÂÑö', name: 'ËêåÂÆ†Â§¥ÂÉè' },
-  { id: 'Áª†‚Ç¨ÈçóÊõû„ÅîÈçç?', name: 'ÁÆÄÂçïÂ§¥ÂÉè' },
-  { id: 'ÈèÇÂõßÁìßÊæ∂ÊùëÂÑö', name: 'ÊñáÂ≠óÂ§¥ÂÉè' }
+  { id: '≈Æ…˙Õ∑œÒ', name: '≈Æ…˙Õ∑œÒ' },
+  { id: 'Áî∑ÁîüÂ§¥ÂÉè', name: 'ƒ–…˙Õ∑œÒ' },
+  { id: 'ÊÉÖ‰æ£Â§¥ÂÉè', name: '«È¬¬Õ∑œÒ' },
+  { id: 'Èó∫ËúúÂ§¥ÂÉè', name: 'πÎ√€Õ∑œÒ' },
+  { id: '‰ªôÂ•≥Â§¥ÂÉè', name: 'œ…≈ÆÕ∑œÒ' },
+  { id: 'Âä®Êº´Â§¥ÂÉè', name: '∂Ø¬˛Õ∑œÒ' },
+  { id: 'Ê≤ôÈõïÂ§¥ÂÉè', name: '…≥µÒÕ∑œÒ' },
+  { id: 'ÂèØÁà±Â§¥ÂÉè', name: 'ø…∞ÆÕ∑œÒ' },
+  { id: 'Ê¨ßÁæéÂ§¥ÂÉè', name: '≈∑√¿Õ∑œÒ' },
+  { id: 'Âè§È£éÂ§¥ÂÉè', name: 'π≈∑ÁÕ∑œÒ' },
+  { id: 'ËêåÂÆ†Â§¥ÂÉè', name: '√»≥ËÕ∑œÒ' },
+  { id: 'ÁÆÄÂçïÂ§¥ÂÉ?', name: 'ºÚµ•Õ∑œÒ' },
+  { id: 'ÊñáÂ≠óÂ§¥ÂÉè', name: 'Œƒ◊÷Õ∑œÒ' }
 ];
 
 const state = {
@@ -37,20 +37,20 @@ function renderNav() {
 function renderGrid() {
   const current = state.categoryState[state.currentCategory];
   if (current.loading && current.avatars.length === 0) {
-    els.status.textContent = 'Âä†ËΩΩ‰∏≠...';
+    els.status.textContent = 'º”‘ÿ÷–...';
     els.grid.innerHTML = '';
     return;
   }
   if (!current.avatars.length) {
-    els.status.textContent = 'ÊöÇÊó†Â§¥ÂÉèÊï∞ÊçÆ';
+    els.status.textContent = '‘›ŒﬁÕ∑œÒ ˝æ›';
     els.grid.innerHTML = '';
     return;
   }
   els.status.textContent = '';
   els.grid.innerHTML = current.avatars.map((item) => `
     <article class="card" data-url="${item.url}">
-      <img loading="lazy" src="${item.url}" alt="Â§¥ÂÉè" />
-      <div class="meta">‚ù§ ${item.favoriteCount}</div>
+      <img loading="lazy" src="${item.url}" alt="Õ∑œÒ" />
+      <div class="meta">? ${item.favoriteCount}</div>
     </article>
   `).join('');
 }
@@ -59,7 +59,7 @@ function applyCurrentCategory() {
   renderNav();
   renderGrid();
   const current = state.categoryState[state.currentCategory];
-  els.loadMoreStatus.textContent = current.loadingMore ? 'Âä†ËΩΩÊõ¥Â§ö‰∏≠...' : (current.hasMore ? '' : 'Ê≤°ÊúâÊõ¥Â§ö‰∫Ü');
+  els.loadMoreStatus.textContent = current.loadingMore ? 'º”‘ÿ∏¸∂‡÷–...' : (current.hasMore ? '' : '√ª”–∏¸∂‡¡À');
 }
 
 function processAvatarData(list) {
@@ -82,7 +82,7 @@ async function fetchAvatars(kw, start, limit) {
     throw new Error(`HTTP ${res.status}: ${bodyText.slice(0, 120)}`);
   }
   if (!contentType.includes('application/json')) {
-    throw new Error(bodyText.slice(0, 120) || 'ÂìçÂ∫î‰∏çÊòØ JSON');
+    throw new Error(bodyText.slice(0, 120) || 'œÏ”¶≤ª « JSON');
   }
   return JSON.parse(bodyText);
 }
@@ -100,13 +100,13 @@ async function loadCategoryFirstPage(kw, force = false) {
       current.nextStart = data.data.next_start || 0;
       current.loaded = true;
       if (current.avatars.length === 0) {
-        els.status.textContent = `Êé•Âè£ËøîÂõûÊàêÂäüÔºå‰ΩÜÂΩìÂâçÂàÜÁ±ª„Äå${kw}„ÄçÊ≤°ÊúâÊï∞ÊçÆ„ÄÇ`;
+        els.status.textContent = `Ω”ø⁄∑µªÿ≥…π¶£¨µ´µ±«∞∑÷¿‡°∏${kw}°π√ª”– ˝æ›°£`;
       }
     } else {
-      els.status.textContent = 'Êé•Âè£ËøîÂõûÊ†ºÂºè‰∏çÁ¨¶ÂêàÈ¢ÑÊúü„ÄÇ';
+      els.status.textContent = 'Ω”ø⁄∑µªÿ∏Ò Ω≤ª∑˚∫œ‘§∆⁄°£';
     }
   } catch (error) {
-    els.status.textContent = `Âä†ËΩΩÂ§±Ë¥•Ôºö${error.message}`;
+    els.status.textContent = `º”‘ÿ ß∞‹£∫${error.message}`;
   } finally {
     current.loading = false;
     applyCurrentCategory();
@@ -126,7 +126,7 @@ async function loadMore() {
       current.nextStart = data.data.next_start || current.nextStart;
     }
   } catch (error) {
-    els.loadMoreStatus.textContent = `Âä†ËΩΩÊõ¥Â§öÂ§±Ë¥•Ôºö${error.message}`;
+    els.loadMoreStatus.textContent = `º”‘ÿ∏¸∂‡ ß∞‹£∫${error.message}`;
   } finally {
     current.loadingMore = false;
     applyCurrentCategory();
@@ -171,3 +171,4 @@ window.addEventListener('scroll', () => {
   renderNav();
   await loadCategoryFirstPage(state.currentCategory);
 })();
+
