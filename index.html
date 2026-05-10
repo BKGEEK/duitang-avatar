@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>头像精选网站</title>
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div>
+        <h1>头像精选</h1>
+        <p>普通网站版本，支持分类、瀑布流、预览和加载更多。</p>
+      </div>
+      <button id="backTopBtn" class="ghost-btn hidden">返回顶部</button>
+    </header>
+
+    <nav id="categoryNav" class="category-nav"></nav>
+
+    <main id="content" class="content">
+      <section id="status" class="status">加载中...</section>
+      <section id="grid" class="grid"></section>
+      <div id="loadMoreStatus" class="status muted"></div>
+    </main>
+  </div>
+
+  <div id="previewModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close="1"></div>
+    <div class="modal-panel">
+      <button class="modal-close" data-close="1">×</button>
+      <img id="previewImg" alt="预览头像" />
+    </div>
+  </div>
+
+  <script src="site.js"></script>
+</body>
+</html>
