@@ -1,18 +1,18 @@
-const API_URL = '/api/nt';
+Ôªøconst API_URL = '/api/nt';
 const CATEGORIES = [
-  { id: '≈Æ…˙Õ∑œÒ', name: '≈Æ…˙Õ∑œÒ' },
-  { id: 'ƒ–…˙Õ∑œÒ', name: 'ƒ–…˙Õ∑œÒ' },
-  { id: 'ÊÉÖ‰æ£Â§¥ÂÉè', name: '«È¬¬Õ∑œÒ' },
-  { id: 'Èó∫ËúúÂ§¥ÂÉè', name: 'πÎ√€Õ∑œÒ' },
-  { id: '‰ªôÂ•≥Â§¥ÂÉè', name: 'œ…≈ÆÕ∑œÒ' },
-  { id: 'Âä®Êº´Â§¥ÂÉè', name: '∂Ø¬˛Õ∑œÒ' },
-  { id: 'Ê≤ôÈõïÂ§¥ÂÉè', name: '…≥µÒÕ∑œÒ' },
-  { id: 'ÂèØÁà±Â§¥ÂÉè', name: 'ø…∞ÆÕ∑œÒ' },
-  { id: 'Ê¨ßÁæéÂ§¥ÂÉè', name: '≈∑√¿Õ∑œÒ' },
-  { id: 'Âè§È£éÂ§¥ÂÉè', name: 'π≈∑ÁÕ∑œÒ' },
-  { id: 'ËêåÂÆ†Â§¥ÂÉè', name: '√»≥ËÕ∑œÒ' },
-  { id: 'ÁÆÄÂçïÂ§¥ÂÉ?', name: 'ºÚµ•Õ∑œÒ' },
-  { id: 'ÊñáÂ≠óÂ§¥ÂÉè', name: 'Œƒ◊÷Õ∑œÒ' }
+  { id: 'Â•≥ÁîüÂ§¥ÂÉè', name: 'Â•≥ÁîüÂ§¥ÂÉè' },
+  { id: 'Áî∑ÁîüÂ§¥ÂÉè', name: 'Áî∑ÁîüÂ§¥ÂÉè' },
+  { id: 'ÊÉÖ‰æ£Â§¥ÂÉè', name: 'ÊÉÖ‰æ£Â§¥ÂÉè' },
+  { id: 'Èó∫ËúúÂ§¥ÂÉè', name: 'Èó∫ËúúÂ§¥ÂÉè' },
+  { id: '‰ªôÂ•≥Â§¥ÂÉè', name: '‰ªôÂ•≥Â§¥ÂÉè' },
+  { id: 'Âä®Êº´Â§¥ÂÉè', name: 'Âä®Êº´Â§¥ÂÉè' },
+  { id: 'Ê≤ôÈõïÂ§¥ÂÉè', name: 'Ê≤ôÈõïÂ§¥ÂÉè' },
+  { id: 'ÂèØÁà±Â§¥ÂÉè', name: 'ÂèØÁà±Â§¥ÂÉè' },
+  { id: 'Ê¨ßÁæéÂ§¥ÂÉè', name: 'Ê¨ßÁæéÂ§¥ÂÉè' },
+  { id: 'Âè§È£éÂ§¥ÂÉè', name: 'Âè§È£éÂ§¥ÂÉè' },
+  { id: 'ËêåÂÆ†Â§¥ÂÉè', name: 'ËêåÂÆ†Â§¥ÂÉè' },
+  { id: 'ÁÆÄÂçïÂ§¥ÂÉè', name: 'ÁÆÄÂçïÂ§¥ÂÉè' },
+  { id: 'ÊñáÂ≠óÂ§¥ÂÉè', name: 'ÊñáÂ≠óÂ§¥ÂÉè' }
 ];
 
 const state = {
@@ -37,20 +37,20 @@ function renderNav() {
 function renderGrid() {
   const current = state.categoryState[state.currentCategory];
   if (current.loading && current.avatars.length === 0) {
-    els.status.textContent = 'º”‘ÿ÷–...';
+    els.status.textContent = 'Âä†ËΩΩ‰∏≠...';
     els.grid.innerHTML = '';
     return;
   }
   if (!current.avatars.length) {
-    els.status.textContent = '‘›ŒﬁÕ∑œÒ ˝æ›';
+    els.status.textContent = 'ÊöÇÊó†Â§¥ÂÉèÊï∞ÊçÆ';
     els.grid.innerHTML = '';
     return;
   }
   els.status.textContent = '';
   els.grid.innerHTML = current.avatars.map((item) => `
     <article class="card" data-url="${item.url}">
-      <img loading="lazy" src="${item.url}" alt="Õ∑œÒ" />
-      <div class="meta">? ${item.favoriteCount}</div>
+      <img loading="lazy" src="${item.url}" alt="Â§¥ÂÉè" />
+      <div class="meta">‚ù§ ${item.favoriteCount}</div>
     </article>
   `).join('');
 }
@@ -59,7 +59,7 @@ function applyCurrentCategory() {
   renderNav();
   renderGrid();
   const current = state.categoryState[state.currentCategory];
-  els.loadMoreStatus.textContent = current.loadingMore ? 'º”‘ÿ∏¸∂‡÷–...' : (current.hasMore ? '' : '√ª”–∏¸∂‡¡À');
+  els.loadMoreStatus.textContent = current.loadingMore ? 'Âä†ËΩΩÊõ¥Â§ö‰∏≠...' : (current.hasMore ? '' : 'Ê≤°ÊúâÊõ¥Â§ö‰∫Ü');
 }
 
 function processAvatarData(list) {
@@ -71,7 +71,7 @@ function processAvatarData(list) {
 }
 
 async function fetchAvatars(kw, start, limit) {
-  const url = new URL(API_URL);
+  const url = new URL(API_URL, window.location.origin);
   url.searchParams.set('kw', kw);
   url.searchParams.set('start', String(start));
   url.searchParams.set('limit', String(limit));
@@ -82,7 +82,7 @@ async function fetchAvatars(kw, start, limit) {
     throw new Error(`HTTP ${res.status}: ${bodyText.slice(0, 120)}`);
   }
   if (!contentType.includes('application/json')) {
-    throw new Error(bodyText.slice(0, 120) || 'œÏ”¶≤ª « JSON');
+    throw new Error(bodyText.slice(0, 120) || 'ÂìçÂ∫î‰∏çÊòØ JSON');
   }
   return JSON.parse(bodyText);
 }
@@ -100,13 +100,13 @@ async function loadCategoryFirstPage(kw, force = false) {
       current.nextStart = data.data.next_start || 0;
       current.loaded = true;
       if (current.avatars.length === 0) {
-        els.status.textContent = `Ω”ø⁄∑µªÿ≥…π¶£¨µ´µ±«∞∑÷¿‡°∏${kw}°π√ª”– ˝æ›°£`;
+        els.status.textContent = `Êé•Âè£ËøîÂõûÊàêÂäüÔºå‰ΩÜÂΩìÂâçÂàÜÁ±ª„Äå${kw}„ÄçÊ≤°ÊúâÊï∞ÊçÆ„ÄÇ`;
       }
     } else {
-      els.status.textContent = 'Ω”ø⁄∑µªÿ∏Ò Ω≤ª∑˚∫œ‘§∆⁄°£';
+      els.status.textContent = 'Êé•Âè£ËøîÂõûÊ†ºÂºè‰∏çÁ¨¶ÂêàÈ¢ÑÊúü„ÄÇ';
     }
   } catch (error) {
-    els.status.textContent = `º”‘ÿ ß∞‹£∫${error.message}`;
+    els.status.textContent = `Âä†ËΩΩÂ§±Ë¥•Ôºö${error.message}`;
   } finally {
     current.loading = false;
     applyCurrentCategory();
@@ -126,7 +126,7 @@ async function loadMore() {
       current.nextStart = data.data.next_start || current.nextStart;
     }
   } catch (error) {
-    els.loadMoreStatus.textContent = `º”‘ÿ∏¸∂‡ ß∞‹£∫${error.message}`;
+    els.loadMoreStatus.textContent = `Âä†ËΩΩÊõ¥Â§öÂ§±Ë¥•Ôºö${error.message}`;
   } finally {
     current.loadingMore = false;
     applyCurrentCategory();
@@ -171,4 +171,3 @@ window.addEventListener('scroll', () => {
   renderNav();
   await loadCategoryFirstPage(state.currentCategory);
 })();
-
