@@ -75,8 +75,16 @@ async function fetchAvatars(kw, start, limit) {
   url.searchParams.set('kw', kw);
   url.searchParams.set('start', String(start));
   url.searchParams.set('limit', String(limit));
-  const res = await fetch(url.toString());
-  return res.json();
+  const res = await fetch(url.toString(), { mode: 'cors' });
+  const contentType = res.headers.get('content-type') || '';
+  const bodyText = await res.text();
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status}: ${bodyText.slice(0, 120)}`);
+  }
+  if (!contentType.includes('application/json')) {
+    throw new Error(bodyText.slice(0, 120) || '响应不是 JSON');
+  }
+  return JSON.parse(bodyText);
 }
 
 async function loadCategoryFirstPage(kw, force = false) {
@@ -117,6 +125,8 @@ async function loadMore() {
       current.hasMore = data.data.more === 1;
       current.nextStart = data.data.next_start || current.nextStart;
     }
+  } catch (error) {
+    els.loadMoreStatus.textContent = `加载更多失败：${error.message}`;
   } finally {
     current.loadingMore = false;
     applyCurrentCategory();
